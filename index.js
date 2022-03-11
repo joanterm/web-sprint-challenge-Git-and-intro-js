@@ -208,17 +208,18 @@ Practice accessing data above by console.log-ing following items:
 (no functions needed) */
 
 //(1) Name of the first artist (0th index) in the array
-
+console.log(artists[0].name)
 
 
 //(2) Bio of the third artist (2nd index) in the array 
-
+console.log(artists[2].bio)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 (not auto tested): 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
-
+artists[8].name = "Vincent Van Gogh"
+console.log(artists[8].name)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
@@ -230,10 +231,13 @@ Use getArtistByIndex to do the following:
 
 🌟 EXAMPLE: if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+//CORRECT
+function getArtistByIndex(array, indexNumber) {
+  for (let i=0; i<artists.length; i++) {
+    return `the artist at index ${array[indexNumber].id} is ${array[indexNumber].name}`
+  }
 }
-
+console.log(getArtistByIndex(artists, 2))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -243,11 +247,15 @@ Use copy to do the following:
 3. Loop over the new array and update each index of the array to equal just the artist's name
 🌟 EXAMPLE of return: ["Amedeo Modigliani", "Vasiliy Kandinskiy", "Diego Rivera"....]
 */
-
-function listOfNames(/*Your Code Here*/) {
-  /*Your Code Here*/
+//CORRECT
+function listOfNames(array) {
+  const newArray = [];
+  for (let i =0; i<array.length; i++) {
+    newArray.push(array[i].name)
+  }
+  return newArray
 }
-
+console.log(listOfNames(artists))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -258,10 +266,12 @@ Use removeArtist to do the following:
 4. Remove an artist from the copied array at the desired index
 5. Return the resulting copied array
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
-
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
+//CORRECT
+function removeArtist(array, indexNumber) {
+  array.splice(indexNumber, 1)
+  return array
 }
+console.log(removeArtist(artists, 0))
 
 
 
